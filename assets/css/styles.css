@@ -278,6 +278,7 @@ body.light-theme {
   padding: 1rem 2.25rem;
   backdrop-filter: blur(10px);
   transition: .4s;
+  width: 100%;
 }
 
 .nav__list {
@@ -350,12 +351,14 @@ body.light-theme {
 .home__img {
   /* padding-bottom: 1rem; */
   width: 190px;
+  /* width: 100%; */
   justify-self: center;
 }
 
 .home__handle {
   justify-self: center;
-  width: 190px;
+  /* width: 190px; */
+  width: 80%;
   height: 300px;
   background: linear-gradient(180deg,
               hsla(var(--first-hue), var(--sat), var(--lig), 1),
@@ -511,6 +514,7 @@ body.light-theme {
 .skills__container {
   row-gap: 2rem;
   padding-top: 1rem;
+  grid-template-columns: 1fr;
 }
 
 .skills__content {
@@ -531,6 +535,7 @@ body.light-theme {
   display: flex;
   justify-content: center;
   column-gap: 2.5rem;
+  flex-direction: column;
 }
 
 .skills__group {
@@ -561,7 +566,8 @@ body.light-theme {
 
 /*=============== SERVICES ===============*/
 .services__container {
-  grid-template-columns: repeat(3, 2fr);
+  /* grid-template-columns: repeat(3, 2fr); */
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 1.5rem;
   padding-top: 1rem;
 }
@@ -1015,6 +1021,8 @@ body.light-theme {
   }
 }
 
+
+
 /* For medium devices */
 @media screen and (min-width: 576px) {
   .nav__menu {
@@ -1051,19 +1059,23 @@ body.light-theme {
     padding: 2rem 4rem;
   }
 
-  .services__container {
-    grid-template-columns: repeat(2, 160px);
-    justify-content: center;
-  }
+  /*=============== SERVICES ===============*/
+.services__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Menggunakan auto-fit agar kolom dapat menyesuaikan jumlah kontainer */
+  gap: 1.5rem;
+  justify-content: center;
+}
 
-  .services__modal-content {
-    width: 500px;
-    padding: 4.5rem 2.5rem 2.5rem;
-  }
+.services__modal-content {
+  max-width: 500px; /* Menggunakan max-width agar konten tidak terlalu lebar di layar yang lebih kecil */
+  width: 100%;
+  padding: 4.5rem 2.5rem 2.5rem;
+}
 
-  .services__modal-description {
-    padding: 0 3.5rem;
-  }
+.services__modal-description {
+  padding: 0 1.5rem; /* Mengurangi padding agar konten tetap terlihat baik di layar yang lebih kecil */
+}
 
   .work__container {
     justify-content: center;
